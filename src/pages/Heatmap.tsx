@@ -20,7 +20,7 @@ const Heatmap = () => {
           zoom={8}
           center={DEFAULT_CENTER}
           options={{
-            disableDefaultUI: false,
+            disableDefaultUI: true,
           }}
         >
           {maps && (
