@@ -1,54 +1,58 @@
-import React, { useState } from "react";
-import styled, { keyframes } from "styled-components";
-import "./App.css";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import menu from "./images/menu.png";
-import mapPin from "./images/map-pin.png";
-import geo from "./images/geo.png";
-import graph from "./images/graph.png";
-import BranchLocator from "./pages/BranchLocator";
-import GeoMarketing from "./pages/GeoMarketing";
-import Heatmap from "./pages/Heatmap";
+import React, { useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import './App.css';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import menu from './images/menu.png';
+import mapPin from './images/map-pin.png';
+import geo from './images/geo.png';
+import graph from './images/graph.png';
+import BranchLocator from './pages/BranchLocator';
+import GeoMarketing from './pages/GeoMarketing';
+import Heatmap from './pages/Heatmap';
+import BrancglocatorDialog from './components/BranchLocatorDialog/BrancglocatorDialog';
 
 function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const DropdownList = [
     {
-      message: "MENU",
+      message: 'MENU',
       icon: menu,
       onclick: () => setIsDropdownOpen(!isDropdownOpen),
-      to: "",
+      to: '',
     },
     {
-      message: "Branch Locator",
+      message: 'Branch Locator',
       icon: mapPin,
       onclick: () => {},
-      to: "",
+      to: '',
     },
     {
-      message: "Geo-marketing",
+      message: 'Geo-marketing',
       icon: geo,
       onclick: () => {},
-      to: "geo-marketing",
+      to: 'geo-marketing',
     },
     {
-      message: "Heatmap",
+      message: 'Heatmap',
       icon: graph,
       onclick: () => {},
-      to: "heatmap",
+      to: 'heatmap',
     },
   ];
   return (
     <SContainer>
-      {isDropdownOpen && <SBackDrop onClick={() => setIsDropdownOpen(false)} />}
+      {isDropdownOpen && (
+        <SBackDrop onClick={() => setIsDropdownOpen(false)} />
+      )}
+      <BrancglocatorDialog />
       <BrowserRouter>
-        <SDropdown className={isDropdownOpen ? "open" : "close"}>
+        <SDropdown className={isDropdownOpen ? 'open' : 'close'}>
           {DropdownList.map((e, i) => {
             if (i === 0) {
               return (
                 <SBar
-                  className={isDropdownOpen ? "open" : "close"}
+                  className={isDropdownOpen ? 'open' : 'close'}
                   onClick={() => e.onclick()}
                 >
                   <SMessage>{e.message}</SMessage>
@@ -57,9 +61,9 @@ function App() {
               );
             } else {
               return (
-                <Link to={e.to} style={{ textDecoration: "none" }}>
+                <Link to={e.to} style={{ textDecoration: 'none' }}>
                   <SBar
-                    className={isDropdownOpen ? "open" : "close"}
+                    className={isDropdownOpen ? 'open' : 'close'}
                     onClick={() => e.onclick()}
                   >
                     <SMessage>{e.message}</SMessage>
@@ -145,4 +149,12 @@ const SDropdown = styled.div`
 const SContainer = styled.div`
   width: 100%;
   height: 100%;
+`;
+const SPopup = styled.div`
+  color: red;
+  position: absolute;
+  font-size: 100px;
+  width: 411px;
+  z-index: 999;
+  background: black;
 `;
