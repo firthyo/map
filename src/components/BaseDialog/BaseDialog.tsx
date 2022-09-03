@@ -5,6 +5,7 @@ interface DialogInterface {
   title: String;
   description: String;
   contact: String;
+  button?: any;
 }
 
 const BaseDialog = (dialogContent: DialogInterface) => {
@@ -16,6 +17,7 @@ const BaseDialog = (dialogContent: DialogInterface) => {
         <STextContent>
           <SDetail>{dialogContent.description}</SDetail>
           <SContact>{dialogContent.contact}</SContact>
+          {dialogContent.button ?? null}
         </STextContent>
       </STextWarpper>
     </SPopup>
@@ -52,5 +54,5 @@ const STextWarpper = styled.div`
 `;
 const SDetail = styled.div``;
 const SContact = styled.div`
-  margin: 15px 0px;
+  margin: 10px 0px;
 `;
