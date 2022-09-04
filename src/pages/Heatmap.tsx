@@ -1,7 +1,14 @@
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  LoadScript,
+  Marker,
+  HeatmapLayer,
+} from "@react-google-maps/api";
 import { useState } from "react";
-
+import { heatMapData } from "../data/consumer";
+import MOCK_DATA from "../data/MOCK_DATA.json";
 const DEFAULT_CENTER = { lat: 13.7563, lng: 100.5018 };
+
 const Heatmap = () => {
   const [maps, setMaps] = useState<google.maps.Map | undefined>(undefined);
 
@@ -9,7 +16,7 @@ const Heatmap = () => {
     <div>
       <LoadScript
         googleMapsApiKey={`${process.env.REACT_APP_GOOGLE_MAPS_API}`}
-        // libraries={["places"]}
+        libraries={["places", "visualization"]}
       >
         <GoogleMap
           mapContainerStyle={{
@@ -17,7 +24,7 @@ const Heatmap = () => {
             width: "100vw",
           }}
           onLoad={(e) => setMaps(e)}
-          zoom={8}
+          zoom={14}
           center={DEFAULT_CENTER}
           options={{
             disableDefaultUI: true,
@@ -25,7 +32,14 @@ const Heatmap = () => {
         >
           {maps && (
             <div>
-              <Marker position={DEFAULT_CENTER} />
+              <Marker position={DEFAULT_CENTER} />;
+              <HeatmapLayer
+                // required
+                data={MOCK_DATA.map(
+                  (e) => new google.maps.LatLng(e.lat, e.lng)
+                )}
+              />
+              ;
             </div>
           )}
         </GoogleMap>
