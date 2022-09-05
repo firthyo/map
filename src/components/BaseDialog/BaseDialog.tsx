@@ -13,7 +13,7 @@ const BaseDialog = (dialogContent: DialogInterface) => {
     <SPopup>
       <img src={DialogBg} alt="organization" />
       <STextWarpper>
-        <STitle>{dialogContent.description}</STitle>
+        <STitle>{dialogContent.title}</STitle>
         <STextContent>
           <SDetail>{dialogContent.description}</SDetail>
           <SContact>{dialogContent.contact}</SContact>
@@ -31,7 +31,7 @@ const SPopup = styled.div`
   position: absolute;
   font-size: 40px;
   width: 450px;
-  height: 400px;
+  height: fit-content;
   z-index: 999;
   background: #ffffff;
   border-radius: 18px 18px 18px 18px;
@@ -48,11 +48,20 @@ const STextContent = styled.div`
 const STitle = styled.div`
   font-weight: 500;
   font-size: 20px;
+  max-width: 300px;
+  max-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 const STextWarpper = styled.div`
   margin: 25px;
 `;
-const SDetail = styled.div``;
+const SDetail = styled.div`
+  max-width: 400px;
+  max-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
 const SContact = styled.div`
   margin: 10px 0px;
 `;

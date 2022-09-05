@@ -2,14 +2,19 @@ import styled from 'styled-components';
 import BaseDialog from '../BaseDialog/BaseDialog';
 import DirectionButton from '../Buttons/DirectionButton';
 
-const BrancglocatorDialog = () => {
+interface LocationDetail {
+  description: String;
+  title: String;
+  contact: String;
+}
+const BrancglocatorDialog = (location: LocationDetail) => {
   const renderButton = <DirectionButton ButtonText={'Direction'} />;
   return (
     <SBranchDialoogWarpper>
       <BaseDialog
-        description={'Shoes shop'}
-        title={'Shopping name'}
-        contact={'+66 888 4848'}
+        description={location.description}
+        title={location.title}
+        contact={location.contact}
         button={renderButton}
       />
     </SBranchDialoogWarpper>
