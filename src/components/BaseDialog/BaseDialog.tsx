@@ -17,7 +17,9 @@ const BaseDialog = (dialogContent: DialogInterface) => {
         <STextContent>
           <SDetail>{dialogContent.description}</SDetail>
           <SContact>{dialogContent.contact}</SContact>
-          {dialogContent.button ?? null}
+          <SButtonWrapper>
+            {dialogContent.button ?? null}
+          </SButtonWrapper>
         </STextContent>
       </STextWarpper>
     </SPopup>
@@ -64,4 +66,9 @@ const SDetail = styled.div`
 `;
 const SContact = styled.div`
   margin: 10px 0px;
+`;
+const SButtonWrapper = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
 `;

@@ -9,6 +9,7 @@ import { useState } from 'react';
 import MOCK_B from '../data/BranchLocator.json';
 import CurrentLocation from '../asset/icons/CurrentLocation.png';
 import StoreIconCenter from '../asset/icons/StoreIconCenter.png';
+import UnselectedStore from '../asset/icons/UnselectedStore.png';
 import BrancglocatorDialog from '../components/BranchLocatorDialog/BrancglocatorDialog';
 const DEFAULT_CENTER = { lat: 13.7563, lng: 100.5018 };
 interface SelectedPoint {
@@ -115,6 +116,7 @@ const BranchLocator = () => {
                   // required
                   options={{
                     directions: direction,
+                    suppressMarkers: true,
                   }}
                   // optional
                   onLoad={(directionsRenderer) => {
@@ -139,6 +141,18 @@ const BranchLocator = () => {
                   scaledSize: new google.maps.Size(35, 50),
                 }}
               />
+              {selectedPoint ? (
+                <Marker
+                  position={{
+                    lat: selectedPoint.lat,
+                    lng: selectedPoint.lng,
+                  }}
+                  icon={{
+                    url: StoreIconCenter,
+                    scaledSize: new google.maps.Size(45, 55),
+                  }}
+                />
+              ) : null}
               {MOCK_B.map((mk, index) => {
                 return (
                   <Marker
@@ -146,7 +160,7 @@ const BranchLocator = () => {
                     key={index}
                     position={{ lat: mk.lat, lng: mk.lng }}
                     icon={{
-                      url: StoreIconCenter,
+                      url: UnselectedStore,
                       scaledSize: new google.maps.Size(40, 50),
                     }}
                   />
