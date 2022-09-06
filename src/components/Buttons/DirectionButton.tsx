@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Direction from '../../asset/icons/Direction.png';
 interface ButtonInterface {
   ButtonText: String;
-  renderPath: Function;
+  renderPath?: Function;
 }
 
 const DirectionButton = ({
@@ -10,7 +10,7 @@ const DirectionButton = ({
   renderPath,
 }: ButtonInterface) => {
   return (
-    <SButtonWrapper onClick={() => renderPath()}>
+    <SButtonWrapper onClick={() => renderPath && renderPath()}>
       <SContentWarpper>
         <SImgWarpper>
           <img src={Direction} alt="organization" />

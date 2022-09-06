@@ -6,7 +6,7 @@ import {
   Marker,
 } from '@react-google-maps/api';
 import { useEffect, useState } from 'react';
-import MOCK_B from '../data/BranchLocator.json';
+import MOCK_B from '../data/BRANCH_LOCATOR_DATA_MOCK.json';
 import CurrentLocation from '../asset/icons/CurrentLocation.png';
 import StoreIconCenter from '../asset/icons/StoreIconCenter.png';
 import UnselectedStore from '../asset/icons/UnselectedStore.png';
@@ -21,6 +21,7 @@ const DEFAULT_ALLOW_LIB: (
   | 'visualization'
 )[] = ['places', 'geometry'];
 interface SelectedPoint {
+  id: number;
   lat: number;
   lng: number;
   name: String;
@@ -48,17 +49,6 @@ const BranchLocator = () => {
   const directionCallback = (event: any) => {
     setDirection(event);
     setIsLocationSelected(false);
-  };
-
-  const setSelectedLocation = (selected: any) => {
-    setSelectedPoint({
-      lat: selected.lat,
-      lng: selected.lng,
-      name: selected.name,
-      description: selected.description,
-      contact: selected.contact,
-    });
-    setIsLocationSelected(true);
   };
 
   const setMapDefault = () => {
@@ -136,27 +126,24 @@ const BranchLocator = () => {
                   scaledSize: new google.maps.Size(35, 50),
                 }}
               />
-              {selectedPoint ? (
-                <Marker
-                  position={{
-                    lat: selectedPoint.lat,
-                    lng: selectedPoint.lng,
-                  }}
-                  icon={{
-                    url: StoreIconCenter,
-                    scaledSize: new google.maps.Size(45, 55),
-                  }}
-                />
-              ) : null}
               {MOCK_B.map((mk, index) => {
                 return (
                   <Marker
-                    onClick={() => setSelectedLocation(mk)}
+                    onClick={() => {
+                      setSelectedPoint(mk);
+                      setIsLocationSelected(true);
+                    }}
                     key={index}
                     position={{ lat: mk.lat, lng: mk.lng }}
                     icon={{
-                      url: UnselectedStore,
-                      scaledSize: new google.maps.Size(40, 50),
+                      url:
+                        selectedPoint?.id === mk.id
+                          ? StoreIconCenter
+                          : UnselectedStore,
+                      scaledSize:
+                        selectedPoint?.id === mk.id
+                          ? new google.maps.Size(60, 70)
+                          : new google.maps.Size(40, 50),
                     }}
                   />
                 );

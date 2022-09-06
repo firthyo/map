@@ -5,12 +5,13 @@ interface DialogInterface {
   title: String;
   description: String;
   contact: String;
+  css?: any;
   button?: any;
 }
 
 const BaseDialog = (dialogContent: DialogInterface) => {
   return (
-    <SPopup>
+    <SPopup style={dialogContent.css}>
       <img src={DialogBg} alt="organization" />
       <STextWarpper>
         <STitle>{dialogContent.title}</STitle>
@@ -34,7 +35,7 @@ const SPopup = styled.div`
   font-size: 40px;
   width: 450px;
   height: fit-content;
-  z-index: 999;
+  z-index: 5;
   background: #ffffff;
   border-radius: 18px 18px 18px 18px;
 `;

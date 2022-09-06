@@ -6,12 +6,14 @@ interface LocationDetail {
   description: String;
   title: String;
   contact: String;
-  renderPath: Function;
+  css?: any;
+  renderPath?: Function;
 }
 const BrancglocatorDialog = ({
   description,
   title,
   contact,
+  css,
   renderPath,
 }: LocationDetail) => {
   const renderButton = (
@@ -27,6 +29,7 @@ const BrancglocatorDialog = ({
         title={title}
         contact={contact}
         button={renderButton}
+        css={css}
       />
     </SBranchDialoogWarpper>
   );
