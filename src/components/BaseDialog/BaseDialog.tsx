@@ -7,17 +7,32 @@ interface DialogInterface {
   contact: String;
   css?: any;
   button?: any;
+  matrix: any;
 }
 
 const BaseDialog = (dialogContent: DialogInterface) => {
   return (
     <SPopup style={dialogContent.css}>
-      <img src={DialogBg} alt="organization" />
+      <img
+        style={{ width: '380px' }}
+        src={DialogBg}
+        alt="organization"
+      />
       <STextWarpper>
         <STitle>{dialogContent.title}</STitle>
         <STextContent>
           <SDetail>{dialogContent.description}</SDetail>
           <SContact>{dialogContent.contact}</SContact>
+          {dialogContent.matrix && (
+            <>
+              <SContact>
+                Distance : {dialogContent?.matrix?.distance?.text}
+              </SContact>
+              <SContact>
+                Duration : {dialogContent?.matrix?.duration?.text}
+              </SContact>
+            </>
+          )}
           <SButtonWrapper>
             {dialogContent.button ?? null}
           </SButtonWrapper>
@@ -33,7 +48,7 @@ const SPopup = styled.div`
   color: #000000;
   position: absolute;
   font-size: 40px;
-  width: 450px;
+  width: 380px;
   height: fit-content;
   z-index: 5;
   background: #ffffff;
@@ -60,7 +75,7 @@ const STextWarpper = styled.div`
   margin: 25px;
 `;
 const SDetail = styled.div`
-  max-width: 400px;
+  max-width: 380px;
   max-height: 25px;
   overflow: hidden;
   text-overflow: ellipsis;

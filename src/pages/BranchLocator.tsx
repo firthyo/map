@@ -1,6 +1,7 @@
 import {
   DirectionsRenderer,
   DirectionsService,
+  DistanceMatrixService,
   GoogleMap,
   LoadScript,
   Marker,
@@ -32,6 +33,7 @@ const BranchLocator = () => {
   const [maps, setMaps] = useState<google.maps.Map | undefined>(
     undefined,
   );
+  const [matrix, setMatrix] = useState<any>(undefined);
   const mapsStyle = [
     ...road[3],
     ...landmark[1],
@@ -60,6 +62,7 @@ const BranchLocator = () => {
     if (!selectedPoint) return;
     setDirection(undefined);
     setIsrenderPath(false);
+    setMatrix(undefined);
   }, [selectedPoint]);
 
   return (
@@ -70,6 +73,7 @@ const BranchLocator = () => {
           title={selectedPoint.name}
           contact={selectedPoint.contact}
           renderPath={() => setIsrenderPath(true)}
+          matrix={matrix}
         />
       ) : null}
       <LoadScript
@@ -92,6 +96,26 @@ const BranchLocator = () => {
         >
           {maps && (
             <div>
+              {selectedPoint && !matrix && (
+                <DistanceMatrixService
+                  callback={(e) => setMatrix(e?.rows[0].elements[0])}
+                  options={{
+                    destinations: [
+                      {
+                        lat: selectedPoint.lat,
+                        lng: selectedPoint.lng,
+                      },
+                    ],
+                    origins: [
+                      {
+                        lng: DEFAULT_CENTER.lng,
+                        lat: DEFAULT_CENTER.lat,
+                      },
+                    ],
+                    travelMode: google.maps.TravelMode.DRIVING,
+                  }}
+                />
+              )}
               {google && isLocationSelected && selectedPoint && (
                 <DirectionsService
                   // required

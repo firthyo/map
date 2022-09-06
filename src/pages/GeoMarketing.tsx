@@ -1,6 +1,7 @@
 import {
   DirectionsRenderer,
   DirectionsService,
+  DistanceMatrixService,
   GoogleMap,
   InfoWindow,
   LoadScript,
@@ -37,6 +38,7 @@ const GeoMarketing = () => {
   >(undefined);
   const [isrenderPath, setIsrenderPath] = useState<boolean>(false);
   const [suggestion, setSuggestion] = useState<any[]>([]);
+  const [matrix, setMatrix] = useState<any>(undefined);
   const mapsStyle = [
     ...road[3],
     ...landmark[1],
@@ -53,6 +55,7 @@ const GeoMarketing = () => {
     if (!selectedPoint) return;
     setDirection(undefined);
     setIsrenderPath(false);
+    setMatrix(undefined);
   }, [selectedPoint]);
   const [direction, setDirection] = useState<any>(undefined);
   return (
@@ -74,6 +77,7 @@ const GeoMarketing = () => {
           title={selectedPoint.name}
           contact={selectedPoint.contact}
           renderPath={() => setIsrenderPath(true)}
+          matrix={matrix}
           css={
             productSelected
               ? { margin: '220px 20px' }
@@ -125,6 +129,26 @@ const GeoMarketing = () => {
                   options={{
                     directions: direction,
                     suppressMarkers: true,
+                  }}
+                />
+              )}
+              {selectedPoint && !matrix && (
+                <DistanceMatrixService
+                  callback={(e) => setMatrix(e?.rows[0].elements[0])}
+                  options={{
+                    destinations: [
+                      {
+                        lat: selectedPoint.lat,
+                        lng: selectedPoint.lng,
+                      },
+                    ],
+                    origins: [
+                      {
+                        lng: DEFAULT_CENTER.lng,
+                        lat: DEFAULT_CENTER.lat,
+                      },
+                    ],
+                    travelMode: google.maps.TravelMode.DRIVING,
                   }}
                 />
               )}

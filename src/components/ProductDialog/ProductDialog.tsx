@@ -77,7 +77,7 @@ const SContainer = styled.div`
   position: absolute;
   z-index: 10;
   margin: 75px 20px;
-  width: 450px;
+  width: 380px;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);

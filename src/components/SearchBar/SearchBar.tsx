@@ -98,7 +98,7 @@ const SSuggestionContainer = styled.div`
   flex-direction: column;
   margin-bottom: -80px;
   background-color: white;
-  width: 450px;
+  width: 380px;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.16);
   border-radius: 18px;
@@ -120,7 +120,7 @@ const SSearchContainer = styled.div`
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.16);
   border-radius: 18px;
-  width: 450px;
+  width: 380px;
   height: 50px;
   display: flex;
   justify-content: center;
