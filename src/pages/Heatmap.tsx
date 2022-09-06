@@ -24,7 +24,7 @@ const Heatmap = () => {
             width: "100vw",
           }}
           onLoad={(e) => setMaps(e)}
-          zoom={14}
+          zoom={12}
           center={DEFAULT_CENTER}
           options={{
             disableDefaultUI: true,
