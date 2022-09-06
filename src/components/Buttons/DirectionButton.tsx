@@ -3,16 +3,20 @@ import BaseDialog from '../BaseDialog/BaseDialog';
 import Direction from '../../asset/icons/Direction.png';
 interface ButtonInterface {
   ButtonText: String;
+  renderPath: Function;
 }
 
-const DirectionButton = (buttonInterface: ButtonInterface) => {
+const DirectionButton = ({
+  ButtonText,
+  renderPath,
+}: ButtonInterface) => {
   return (
-    <SButtonWrapper>
+    <SButtonWrapper onClick={() => renderPath()}>
       <SContentWarpper>
         <SImgWarpper>
           <img src={Direction} alt="organization" />
         </SImgWarpper>
-        <STextWarpper>{buttonInterface.ButtonText}</STextWarpper>
+        <STextWarpper>{ButtonText}</STextWarpper>
       </SContentWarpper>
     </SButtonWrapper>
   );

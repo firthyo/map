@@ -6,15 +6,26 @@ interface LocationDetail {
   description: String;
   title: String;
   contact: String;
+  renderPath: Function;
 }
-const BrancglocatorDialog = (location: LocationDetail) => {
-  const renderButton = <DirectionButton ButtonText={'Direction'} />;
+const BrancglocatorDialog = ({
+  description,
+  title,
+  contact,
+  renderPath,
+}: LocationDetail) => {
+  const renderButton = (
+    <DirectionButton
+      ButtonText={'Direction'}
+      renderPath={renderPath}
+    />
+  );
   return (
     <SBranchDialoogWarpper>
       <BaseDialog
-        description={location.description}
-        title={location.title}
-        contact={location.contact}
+        description={description}
+        title={title}
+        contact={contact}
         button={renderButton}
       />
     </SBranchDialoogWarpper>

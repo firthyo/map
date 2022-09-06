@@ -27,15 +27,14 @@ const BranchLocator = () => {
   const [selectedPoint, setSelectedPoint] = useState<SelectedPoint>();
   const [isLocationSelected, setIsLocationSelected] =
     useState<boolean>(false);
+  const [isrenderPath, setIsrenderPath] = useState<boolean>(false);
 
   const directionCallback = (event: any) => {
-    console.log('event::: ', event);
     setDirection(event);
     setIsLocationSelected(false);
   };
 
   const setSelectedLocation = (selected: any) => {
-    console.log('selected: ', selected.contact);
     setSelectedPoint({
       lat: selected.lat,
       lng: selected.lng,
@@ -49,6 +48,7 @@ const BranchLocator = () => {
   const setMapDefault = () => {
     setSelectedPoint(undefined);
     setDirection(undefined);
+    setIsrenderPath(false);
   };
 
   return (
@@ -58,6 +58,7 @@ const BranchLocator = () => {
           description={selectedPoint.description}
           title={selectedPoint.name}
           contact={selectedPoint.contact}
+          renderPath={() => setIsrenderPath(true)}
         />
       ) : null}
       <LoadScript
@@ -95,42 +96,14 @@ const BranchLocator = () => {
                   }}
                   // required
                   callback={directionCallback}
-                  // optional
-                  onLoad={(directionsService) => {
-                    console.log(
-                      'DirectionsService onLoad directionsService: ',
-                      directionsService,
-                    );
-                  }}
-                  // optional
-                  onUnmount={(directionsService) => {
-                    console.log(
-                      'DirectionsService onUnmount directionsService: ',
-                      directionsService,
-                    );
-                  }}
                 />
               )}
-              {direction && (
+              {direction && isrenderPath && (
                 <DirectionsRenderer
                   // required
                   options={{
                     directions: direction,
                     suppressMarkers: true,
-                  }}
-                  // optional
-                  onLoad={(directionsRenderer) => {
-                    console.log(
-                      'DirectionsRenderer onLoad directionsRenderer: ',
-                      directionsRenderer,
-                    );
-                  }}
-                  // optional
-                  onUnmount={(directionsRenderer) => {
-                    console.log(
-                      'DirectionsRenderer onUnmount directionsRenderer: ',
-                      directionsRenderer,
-                    );
                   }}
                 />
               )}
