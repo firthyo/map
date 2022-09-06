@@ -5,13 +5,20 @@ import {
   LoadScript,
   Marker,
 } from '@react-google-maps/api';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MOCK_B from '../data/BranchLocator.json';
 import CurrentLocation from '../asset/icons/CurrentLocation.png';
 import StoreIconCenter from '../asset/icons/StoreIconCenter.png';
 import UnselectedStore from '../asset/icons/UnselectedStore.png';
 import BrancglocatorDialog from '../components/BranchLocatorDialog/BrancglocatorDialog';
 const DEFAULT_CENTER = { lat: 13.7563, lng: 100.5018 };
+const DEFAULT_ALLOW_LIB: (
+  | 'places'
+  | 'geometry'
+  | 'drawing'
+  | 'localContext'
+  | 'visualization'
+)[] = ['places', 'geometry'];
 interface SelectedPoint {
   lat: number;
   lng: number;
@@ -23,8 +30,10 @@ const BranchLocator = () => {
   const [maps, setMaps] = useState<google.maps.Map | undefined>(
     undefined,
   );
-  const [direction, setDirection] = useState<any>();
-  const [selectedPoint, setSelectedPoint] = useState<SelectedPoint>();
+  const [direction, setDirection] = useState<any>(undefined);
+  const [selectedPoint, setSelectedPoint] = useState<
+    SelectedPoint | undefined
+  >(undefined);
   const [isLocationSelected, setIsLocationSelected] =
     useState<boolean>(false);
   const [isrenderPath, setIsrenderPath] = useState<boolean>(false);
@@ -50,6 +59,11 @@ const BranchLocator = () => {
     setDirection(undefined);
     setIsrenderPath(false);
   };
+  useEffect(() => {
+    if (!selectedPoint) return;
+    setDirection(undefined);
+    setIsrenderPath(false);
+  }, [selectedPoint]);
 
   return (
     <div>
@@ -63,7 +77,7 @@ const BranchLocator = () => {
       ) : null}
       <LoadScript
         googleMapsApiKey={`${process.env.REACT_APP_GOOGLE_MAPS_API}`}
-        libraries={['places', 'geometry']}
+        libraries={DEFAULT_ALLOW_LIB}
       >
         <GoogleMap
           onClick={() => setMapDefault()}

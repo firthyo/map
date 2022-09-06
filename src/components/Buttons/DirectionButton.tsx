@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import BaseDialog from '../BaseDialog/BaseDialog';
 import Direction from '../../asset/icons/Direction.png';
 interface ButtonInterface {
   ButtonText: String;
