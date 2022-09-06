@@ -11,6 +11,7 @@ import CurrentLocation from '../asset/icons/CurrentLocation.png';
 import StoreIconCenter from '../asset/icons/StoreIconCenter.png';
 import UnselectedStore from '../asset/icons/UnselectedStore.png';
 import BrancglocatorDialog from '../components/BranchLocatorDialog/BrancglocatorDialog';
+import { road, landmark, labels, theme } from '../config/maps';
 const DEFAULT_CENTER = { lat: 13.7563, lng: 100.5018 };
 const DEFAULT_ALLOW_LIB: (
   | 'places'
@@ -30,6 +31,12 @@ const BranchLocator = () => {
   const [maps, setMaps] = useState<google.maps.Map | undefined>(
     undefined,
   );
+  const mapsStyle = [
+    ...road[3],
+    ...landmark[1],
+    ...labels[3],
+    ...theme['standard'],
+  ];
   const [direction, setDirection] = useState<any>(undefined);
   const [selectedPoint, setSelectedPoint] = useState<
     SelectedPoint | undefined
@@ -90,6 +97,7 @@ const BranchLocator = () => {
           center={DEFAULT_CENTER}
           options={{
             disableDefaultUI: true,
+            styles: mapsStyle,
           }}
         >
           {maps && (
