@@ -52,6 +52,7 @@ function App() {
                 <SBar
                   className={isDropdownOpen ? 'open' : 'close'}
                   onClick={() => e.onclick()}
+                  key={i}
                 >
                   <SMessage>{e.message}</SMessage>
                   <SIcon src={e.icon} />
@@ -59,7 +60,11 @@ function App() {
               );
             } else {
               return (
-                <Link to={e.to} style={{ textDecoration: 'none' }}>
+                <Link
+                  to={e.to}
+                  style={{ textDecoration: 'none' }}
+                  key={i}
+                >
                   <SBar
                     className={isDropdownOpen ? 'open' : 'close'}
                     onClick={() => e.onclick()}
