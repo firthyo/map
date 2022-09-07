@@ -1,34 +1,58 @@
 [
   {
-    "name": "Snack",
-    "image": "https://www.bruker.com/zh/applications/food-analysis-and-agriculture/food-quality/snacks/_jcr_content/root/herostage/backgroundImageVPL.coreimg.82.1462.jpeg/1597679208099/savoury-snacks.jpeg"
+    "name": "Mavericks Platinum",
+    "image": "https://www.bruker.com/zh/applications/food-analysis-and-agriculture/food-quality/snacks/_jcr_content/root/herostage/backgroundImageVPL.coreimg.82.1462.jpeg/1597679208099/savoury-snacks.jpeg",
+    "range": {
+      "minimum": 15000
+    }
   },
   {
-    "name": "Motorcycle",
-    "image": "https://images.ctfassets.net/x7j9qwvpvr5s/2OBs5O43R9pYIWwupQZpcO/9885cb2b65e7b6efb2508397e0448f17/MY-22-Panigale-V4-S-Model-Blocks-630x390-V06.png"
+    "name": "High Sierra  Signature",
+    "image": "https://images.ctfassets.net/x7j9qwvpvr5s/2OBs5O43R9pYIWwupQZpcO/9885cb2b65e7b6efb2508397e0448f17/MY-22-Panigale-V4-S-Model-Blocks-630x390-V06.png",
+    "range": {
+      "minimum": 30000
+    }
   },
   {
-    "name": "Cup",
-    "image": "https://media.istockphoto.com/photos/realistic-classic-white-cup-picture-id506131299?k=20&m=506131299&s=612x612&w=0&h=eqOOEpxJdRLY3QWajRpD48W-ihE1nLSw8iiSYZmBNPk="
+    "name": "Mojave Clubs",
+    "image": "https://media.istockphoto.com/photos/realistic-classic-white-cup-picture-id506131299?k=20&m=506131299&s=612x612&w=0&h=eqOOEpxJdRLY3QWajRpD48W-ihE1nLSw8iiSYZmBNPk=",
+    "range": {
+      "minimum": 30000
+    }
   },
   {
-    "name": "Mobile phone",
-    "image": "https://auspost.com.au/shop/static/WFS/AusPost-Shop-Site/-/AusPost-Shop-auspost-B2CWebShop/en_AU/feat-cat/category-tiles/MP_UnlockedPhones_3.jpg"
+    "name": "Catalina Venture",
+    "image": "https://auspost.com.au/shop/static/WFS/AusPost-Shop-Site/-/AusPost-Shop-auspost-B2CWebShop/en_AU/feat-cat/category-tiles/MP_UnlockedPhones_3.jpg",
+    "range": {
+      "minimum": 100000
+    }
   },
   {
-    "name": "Sofa",
-    "image": "https://www.ikea.com/th/en/images/products/vimle-3-seat-sofa-gunnared-medium-grey__0514368_pe639441_s5.jpg"
+    "name": "Big Sur Clubs",
+    "image": "https://www.ikea.com/th/en/images/products/vimle-3-seat-sofa-gunnared-medium-grey__0514368_pe639441_s5.jpg",
+    "range": {
+      "minimum": 30000
+    }
   },
   {
-    "name": "Pillow",
-    "image": "https://www.ikea.com/th/en/images/products/vildkorn-pillow-high__0789297_pe763924_s5.jpg?f=s"
+    "name": "Monterey Diamon",
+    "image": "https://www.ikea.com/th/en/images/products/vildkorn-pillow-high__0789297_pe763924_s5.jpg?f=s",
+    "range": {
+      "minimum": 50000
+    }
   },
   {
-    "name": "Battery",
-    "image": "https://inwfile.com/s-fp/p2e8rk.jpg"
+    "name": "Quarantine Platinum",
+    "image": "https://inwfile.com/s-fp/p2e8rk.jpg",
+    "range": {
+      "minimum": 15000
+    }
   },
   {
-    "name": "Notebook",
-    "image": "https://www.jib.co.th/img_master/product/original/20220126161454_51207_352_1.jpg"
+    "name": "Lasagna Association",
+    "image": "https://www.jib.co.th/img_master/product/original/20220126161454_51207_352_1.jpg",
+    "range": {
+      "minimum": 150000
+    }
   }
 ]
