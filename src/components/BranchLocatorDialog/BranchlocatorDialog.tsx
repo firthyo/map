@@ -10,7 +10,7 @@ interface LocationDetail {
   renderPath?: Function;
   matrix: any;
 }
-const BrancglocatorDialog = ({
+const BranchlocatorDialog = ({
   description,
   title,
   contact,
@@ -37,6 +37,6 @@ const BrancglocatorDialog = ({
     </SBranchDialoogWarpper>
   );
 };
-export default BrancglocatorDialog;
+export default BranchlocatorDialog;
 
 const SBranchDialoogWarpper = styled.div``;

@@ -11,7 +11,7 @@ import MOCK_B from '../data/BRANCH_LOCATOR_DATA_MOCK.json';
 import CurrentLocation from '../asset/icons/CurrentLocation.png';
 import StoreIconCenter from '../asset/icons/StoreIconCenter.png';
 import UnselectedStore from '../asset/icons/UnselectedStore.png';
-import BrancglocatorDialog from '../components/BranchLocatorDialog/BrancglocatorDialog';
+import BranchlocatorDialog from '../components/BranchLocatorDialog/BranchlocatorDialog';
 import { road, landmark, labels, theme } from '../config/maps';
 const DEFAULT_CENTER = { lat: 13.7563, lng: 100.5018 };
 const DEFAULT_ALLOW_LIB: (
@@ -68,7 +68,7 @@ const BranchLocator = () => {
   return (
     <div>
       {selectedPoint ? (
-        <BrancglocatorDialog
+        <BranchlocatorDialog
           description={selectedPoint.description}
           title={selectedPoint.name}
           contact={selectedPoint.contact}

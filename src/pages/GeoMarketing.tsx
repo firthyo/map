@@ -13,7 +13,7 @@ import UnselectedStore from '../asset/icons/UnselectedStore.png';
 import { road, landmark, labels, theme } from '../config/maps';
 import SearchBar from '../components/SearchBar/SearchBar';
 import styled from 'styled-components';
-import BrancglocatorDialog from '../components/BranchLocatorDialog/BrancglocatorDialog';
+import BranchlocatorDialog from '../components/BranchLocatorDialog/BranchlocatorDialog';
 import ProductDialog from '../components/ProductDialog/ProductDialog';
 
 const DEFAULT_CENTER = { lat: 13.7563, lng: 100.5018 };
@@ -72,7 +72,7 @@ const GeoMarketing = () => {
         />
       )}
       {selectedPoint ? (
-        <BrancglocatorDialog
+        <BranchlocatorDialog
           description={selectedPoint.description}
           title={selectedPoint.name}
           contact={selectedPoint.contact}
