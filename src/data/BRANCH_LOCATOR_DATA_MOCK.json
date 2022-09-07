@@ -28,7 +28,11 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/564x/f2/ce/fb/f2cefb7354e005bf331c7c8fe9be6f99.jpg",
+      "https://i.pinimg.com/564x/a3/82/ad/a382ad7e0270fb37ef25054e7440d744.jpg"
+    ]
   },
   {
     "id": 2,
@@ -55,7 +59,11 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/564x/f2/ce/fb/f2cefb7354e005bf331c7c8fe9be6f99.jpg",
+      "https://i.pinimg.com/564x/3e/c9/d0/3ec9d09d770dac042390322418f02c82.jpg"
+    ]
   },
   {
     "id": 3,
@@ -82,7 +90,11 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/564x/3e/c9/d0/3ec9d09d770dac042390322418f02c82.jpg",
+      "https://i.pinimg.com/564x/eb/9f/13/eb9f1397ae00f0629589b8e8dc4e3bbd.jpg"
+    ]
   },
   {
     "id": 4,
@@ -109,7 +121,11 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/564x/eb/9f/13/eb9f1397ae00f0629589b8e8dc4e3bbd.jpg",
+      "https://i.pinimg.com/564x/df/c2/46/dfc2464bf3b28fd7a3cfeb21a1045e58.jpg"
+    ]
   },
   {
     "id": 5,
@@ -136,7 +152,11 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/564x/df/c2/46/dfc2464bf3b28fd7a3cfeb21a1045e58.jpg",
+      "https://i.pinimg.com/564x/16/57/37/165737deca6ad2e3bb0d1d7e0c095054.jpg"
+    ]
   },
   {
     "id": 6,
@@ -167,7 +187,11 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/564x/16/57/37/165737deca6ad2e3bb0d1d7e0c095054.jpg",
+      "https://i.pinimg.com/736x/41/32/5c/41325cd2226678ed3ded0da714a104d4.jpg"
+    ]
   },
   {
     "id": 7,
@@ -194,7 +218,11 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/736x/41/32/5c/41325cd2226678ed3ded0da714a104d4.jpg",
+      "https://i.pinimg.com/736x/5d/ad/58/5dad583325fe915e486c2836776cb0e9.jpg"
+    ]
   },
   {
     "id": 8,
@@ -221,7 +249,11 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/736x/5d/ad/58/5dad583325fe915e486c2836776cb0e9.jpg",
+      "https://i.pinimg.com/564x/a3/82/ad/a382ad7e0270fb37ef25054e7440d744.jpg"
+    ]
   },
   {
     "id": 9,
@@ -248,7 +280,10 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/564x/f2/ce/fb/f2cefb7354e005bf331c7c8fe9be6f99.jpg"
+    ]
   },
   {
     "id": 10,
@@ -275,7 +310,11 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/564x/a3/82/ad/a382ad7e0270fb37ef25054e7440d744.jpg",
+      "https://i.pinimg.com/564x/3e/c9/d0/3ec9d09d770dac042390322418f02c82.jpg"
+    ]
   },
   {
     "id": 11,
@@ -302,7 +341,11 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/564x/eb/9f/13/eb9f1397ae00f0629589b8e8dc4e3bbd.jpg",
+      "https://i.pinimg.com/564x/3e/c9/d0/3ec9d09d770dac042390322418f02c82.jpg"
+    ]
   },
   {
     "id": 12,
@@ -329,7 +372,11 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/564x/eb/9f/13/eb9f1397ae00f0629589b8e8dc4e3bbd.jpg",
+      "https://i.pinimg.com/564x/df/c2/46/dfc2464bf3b28fd7a3cfeb21a1045e58.jpg"
+    ]
   },
   {
     "id": 13,
@@ -356,7 +403,10 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/564x/16/57/37/165737deca6ad2e3bb0d1d7e0c095054.jpg"
+    ]
   },
   {
     "id": 14,
@@ -383,7 +433,11 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/564x/df/c2/46/dfc2464bf3b28fd7a3cfeb21a1045e58.jpg",
+      "https://i.pinimg.com/736x/41/32/5c/41325cd2226678ed3ded0da714a104d4.jpg"
+    ]
   },
   {
     "id": 15,
@@ -410,6 +464,9 @@
       "Pillow": { "price": 550, "count": 5, "promotion": "" },
       "Battery": { "price": 50, "count": 5, "promotion": "" },
       "Notebook": { "price": "22,000", "count": 5, "promotion": "" }
-    }
+    },
+    "image": [
+      "https://i.pinimg.com/736x/5d/ad/58/5dad583325fe915e486c2836776cb0e9.jpg"
+    ]
   }
 ]

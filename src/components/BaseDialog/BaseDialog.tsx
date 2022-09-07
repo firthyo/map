@@ -8,6 +8,7 @@ interface DialogInterface {
   css?: any;
   button?: any;
   matrix: any;
+  image?: any;
 }
 
 const BaseDialog = (dialogContent: DialogInterface) => {
@@ -33,6 +34,23 @@ const BaseDialog = (dialogContent: DialogInterface) => {
               </SContact>
             </>
           )}
+
+          <SImageWarpper>
+            {dialogContent.image
+              ? dialogContent.image.map((img: any, i: number) => {
+                  // renderImg(img);
+                  return (
+                    <SImage key={i}>
+                      <img
+                        style={{ width: '50px', height: '70px' }}
+                        src={img}
+                        alt="kkk"
+                      />
+                    </SImage>
+                  );
+                })
+              : null}
+          </SImageWarpper>
           <SButtonWrapper>
             {dialogContent.button ?? null}
           </SButtonWrapper>
@@ -82,6 +100,16 @@ const SDetail = styled.div`
 `;
 const SContact = styled.div`
   margin: 10px 0px;
+`;
+const SImageWarpper = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 0px 5px;
+  width: fit-content;
+`;
+const SImage = styled.div`
+  margin: 0px 5px;
+  width: fit-content;
 `;
 const SButtonWrapper = styled.div`
   &:hover {

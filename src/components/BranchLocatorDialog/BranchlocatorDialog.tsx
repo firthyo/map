@@ -9,6 +9,7 @@ interface LocationDetail {
   css?: any;
   renderPath?: Function;
   matrix: any;
+  image?: any;
 }
 const BranchlocatorDialog = ({
   description,
@@ -17,6 +18,7 @@ const BranchlocatorDialog = ({
   css,
   renderPath,
   matrix,
+  image,
 }: LocationDetail) => {
   const renderButton = (
     <DirectionButton
@@ -33,6 +35,7 @@ const BranchlocatorDialog = ({
         button={renderButton}
         matrix={matrix}
         css={css}
+        image={image}
       />
     </SBranchDialoogWarpper>
   );

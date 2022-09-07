@@ -28,6 +28,7 @@ interface SelectedPoint {
   name: String;
   description: String;
   contact: String;
+  image?: any;
 }
 const BranchLocator = () => {
   const [maps, setMaps] = useState<google.maps.Map | undefined>(
@@ -74,6 +75,7 @@ const BranchLocator = () => {
           contact={selectedPoint.contact}
           renderPath={() => setIsrenderPath(true)}
           matrix={matrix}
+          image={selectedPoint.image ?? ''}
         />
       ) : null}
       <LoadScript
