@@ -1,16 +1,18 @@
 import {
   DirectionsRenderer,
   DirectionsService,
+  DistanceMatrixService,
   GoogleMap,
   LoadScript,
   Marker,
 } from '@react-google-maps/api';
 import { useEffect, useState } from 'react';
-import MOCK_B from '../data/BranchLocator.json';
+import MOCK_B from '../data/BRANCH_LOCATOR_DATA_MOCK.json';
 import CurrentLocation from '../asset/icons/CurrentLocation.png';
 import StoreIconCenter from '../asset/icons/StoreIconCenter.png';
 import UnselectedStore from '../asset/icons/UnselectedStore.png';
-import BrancglocatorDialog from '../components/BranchLocatorDialog/BrancglocatorDialog';
+import BranchlocatorDialog from '../components/BranchLocatorDialog/BranchlocatorDialog';
+import { road, landmark, labels, theme } from '../config/maps';
 const DEFAULT_CENTER = { lat: 13.7563, lng: 100.5018 };
 const DEFAULT_ALLOW_LIB: (
   | 'places'
@@ -20,6 +22,7 @@ const DEFAULT_ALLOW_LIB: (
   | 'visualization'
 )[] = ['places', 'geometry'];
 interface SelectedPoint {
+  id: number;
   lat: number;
   lng: number;
   name: String;
@@ -30,6 +33,13 @@ const BranchLocator = () => {
   const [maps, setMaps] = useState<google.maps.Map | undefined>(
     undefined,
   );
+  const [matrix, setMatrix] = useState<any>(undefined);
+  const mapsStyle = [
+    ...road[3],
+    ...landmark[1],
+    ...labels[3],
+    ...theme['standard'],
+  ];
   const [direction, setDirection] = useState<any>(undefined);
   const [selectedPoint, setSelectedPoint] = useState<
     SelectedPoint | undefined
@@ -43,17 +53,6 @@ const BranchLocator = () => {
     setIsLocationSelected(false);
   };
 
-  const setSelectedLocation = (selected: any) => {
-    setSelectedPoint({
-      lat: selected.lat,
-      lng: selected.lng,
-      name: selected.name,
-      description: selected.description,
-      contact: selected.contact,
-    });
-    setIsLocationSelected(true);
-  };
-
   const setMapDefault = () => {
     setSelectedPoint(undefined);
     setDirection(undefined);
@@ -63,16 +62,18 @@ const BranchLocator = () => {
     if (!selectedPoint) return;
     setDirection(undefined);
     setIsrenderPath(false);
+    setMatrix(undefined);
   }, [selectedPoint]);
 
   return (
     <div>
       {selectedPoint ? (
-        <BrancglocatorDialog
+        <BranchlocatorDialog
           description={selectedPoint.description}
           title={selectedPoint.name}
           contact={selectedPoint.contact}
           renderPath={() => setIsrenderPath(true)}
+          matrix={matrix}
         />
       ) : null}
       <LoadScript
@@ -90,10 +91,31 @@ const BranchLocator = () => {
           center={DEFAULT_CENTER}
           options={{
             disableDefaultUI: true,
+            styles: mapsStyle,
           }}
         >
           {maps && (
             <div>
+              {selectedPoint && !matrix && (
+                <DistanceMatrixService
+                  callback={(e) => setMatrix(e?.rows[0].elements[0])}
+                  options={{
+                    destinations: [
+                      {
+                        lat: selectedPoint.lat,
+                        lng: selectedPoint.lng,
+                      },
+                    ],
+                    origins: [
+                      {
+                        lng: DEFAULT_CENTER.lng,
+                        lat: DEFAULT_CENTER.lat,
+                      },
+                    ],
+                    travelMode: google.maps.TravelMode.DRIVING,
+                  }}
+                />
+              )}
               {google && isLocationSelected && selectedPoint && (
                 <DirectionsService
                   // required
@@ -128,27 +150,24 @@ const BranchLocator = () => {
                   scaledSize: new google.maps.Size(35, 50),
                 }}
               />
-              {selectedPoint ? (
-                <Marker
-                  position={{
-                    lat: selectedPoint.lat,
-                    lng: selectedPoint.lng,
-                  }}
-                  icon={{
-                    url: StoreIconCenter,
-                    scaledSize: new google.maps.Size(45, 55),
-                  }}
-                />
-              ) : null}
               {MOCK_B.map((mk, index) => {
                 return (
                   <Marker
-                    onClick={() => setSelectedLocation(mk)}
+                    onClick={() => {
+                      setSelectedPoint(mk);
+                      setIsLocationSelected(true);
+                    }}
                     key={index}
                     position={{ lat: mk.lat, lng: mk.lng }}
                     icon={{
-                      url: UnselectedStore,
-                      scaledSize: new google.maps.Size(40, 50),
+                      url:
+                        selectedPoint?.id === mk.id
+                          ? StoreIconCenter
+                          : UnselectedStore,
+                      scaledSize:
+                        selectedPoint?.id === mk.id
+                          ? new google.maps.Size(60, 70)
+                          : new google.maps.Size(40, 50),
                     }}
                   />
                 );
