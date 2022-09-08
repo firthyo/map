@@ -42,10 +42,11 @@ const BaseDialog = (dialogContent: DialogInterface) => {
                   return (
                     <SImage key={i}>
                       <img
-                        style={{ width: '70px', height: '80px' }}
-                        src={img}
+                        style={{ width: '120px', marginRight: 5 }}
+                        src={img.src}
                         alt="kkk"
                       />
+                      <STextContent>{img.name}</STextContent>
                     </SImage>
                   );
                 })
@@ -103,12 +104,15 @@ const SContact = styled.div`
 `;
 const SImageWarpper = styled.div`
   display: flex;
-  flex-direction: row;
-  margin: 0px 5px;
+  flex-direction: column;
+  margin-right: 5px;
   width: fit-content;
 `;
 const SImage = styled.div`
-  margin: 0px 5px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin: 0px 5px 10px 0px;
   width: fit-content;
 `;
 const SButtonWrapper = styled.div`

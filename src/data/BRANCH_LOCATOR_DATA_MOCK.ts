@@ -36,7 +36,10 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [GreenLifeInsurance1],
+    image: [
+      { name: 'Green Life Insurance', src: GreenLifeInsurance1 },
+      { name: 'Ziyang Lite', src: Ziyang2 },
+    ],
   },
   {
     id: 2,
@@ -65,7 +68,10 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [GreenLifeInsurance2],
+    image: [
+      { name: 'Green Life Insurance', src: GreenLifeInsurance1 },
+      { name: 'Green Life Insurance Lite', src: GreenLifeInsurance2 },
+    ],
   },
   {
     id: 3,
@@ -94,7 +100,10 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [MuangNontInsurance1],
+    image: [
+      { name: 'Green Life Insurance Lite', src: GreenLifeInsurance2 },
+      { name: 'Muang Nont Insurance', src: MuangNontInsurance1 },
+    ],
   },
   {
     id: 4,
@@ -123,7 +132,9 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [MuangNontInsurance2],
+    image: [
+      { name: 'Muang Nont Insurance Lite', src: MuangNontInsurance2 },
+    ],
   },
   {
     id: 5,
@@ -152,7 +163,10 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [Ziyang1],
+    image: [
+      { name: 'Muang Nont Insurance Lite', src: MuangNontInsurance2 },
+      { name: 'Ziyang', src: Ziyang1 },
+    ],
   },
   {
     id: 6,
@@ -185,7 +199,10 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [Ziyang2],
+    image: [
+      { name: 'Ziyang', src: Ziyang1 },
+      { name: 'Ziyang Lite', src: Ziyang2 },
+    ],
   },
   {
     id: 7,
@@ -214,7 +231,10 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [GreenLifeInsurance1],
+    image: [
+      { name: 'Ziyang Lite', src: Ziyang2 },
+      { name: 'Green Life Insurance', src: GreenLifeInsurance1 },
+    ],
   },
   {
     id: 8,
@@ -243,7 +263,12 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [GreenLifeInsurance2],
+    image: [
+      {
+        name: 'Green Life Insurance Lite',
+        src: GreenLifeInsurance2,
+      },
+    ],
   },
   {
     id: 9,
@@ -272,7 +297,13 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [MuangNontInsurance1],
+    image: [
+      {
+        name: 'Green Life Insurance Lite',
+        src: GreenLifeInsurance2,
+      },
+      { name: 'Muang Nont Insurance', src: MuangNontInsurance1 },
+    ],
   },
   {
     id: 10,
@@ -301,7 +332,10 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [MuangNontInsurance2],
+    image: [
+      { name: 'Muang Nont Insurance', src: MuangNontInsurance1 },
+      { name: 'Muang Nont Insurance Lite', src: MuangNontInsurance2 },
+    ],
   },
   {
     id: 11,
@@ -330,7 +364,10 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [Ziyang1],
+    image: [
+      { name: 'Muang Nont Insurance Lite', src: MuangNontInsurance2 },
+      { name: 'Ziyang', src: Ziyang1 },
+    ],
   },
   {
     id: 12,
@@ -359,7 +396,7 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [Ziyang2],
+    image: [{ name: 'Ziyang Lite', src: Ziyang2 }],
   },
   {
     id: 13,
@@ -388,7 +425,10 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [GreenLifeInsurance1],
+    image: [
+      { name: 'Ziyang Lite', src: Ziyang2 },
+      { name: 'Green Life Insurance', src: GreenLifeInsurance1 },
+    ],
   },
   {
     id: 14,
@@ -417,7 +457,10 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [GreenLifeInsurance2],
+    image: [
+      { name: 'Green Life Insurance', src: GreenLifeInsurance1 },
+      { name: 'Green Life Insurance Lite', src: GreenLifeInsurance2 },
+    ],
   },
   {
     id: 15,
@@ -446,6 +489,8 @@ export const MOCK_BRANCH = [
       Battery: { price: 50, count: 5, promotion: '' },
       Notebook: { price: '22,000', count: 5, promotion: '' },
     },
-    image: [MuangNontInsurance1],
+    image: [
+      { name: 'Muang Nont Insurance', src: MuangNontInsurance1 },
+    ],
   },
 ];
