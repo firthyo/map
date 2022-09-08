@@ -11,6 +11,7 @@ import MOCK_B from '../data/BRANCH_LOCATOR_DATA_MOCK.json';
 import UnselectedStore from '../asset/icons/UnselectedStore.png';
 import SearchBar from '../components/SearchBar/SearchBar';
 import ProductDialog from '../components/ProductDialog/ProductDialog';
+import { ITEM_DATA_MOCK } from '../data/ITEM_DATA_MOCK';
 interface IDataHeatmap {
   id: number;
   first_name: string;
@@ -52,10 +53,10 @@ const Heatmap = () => {
     if (!data) return;
     const result: any = {};
     data.current.forEach((e: any) => {
-      if (result[e.buy]) {
-        result[e.buy].push(e);
+      if (result[e.cardType]) {
+        result[e.cardType].push(e);
       } else {
-        result[e.buy] = [e];
+        result[e.cardType] = [e];
       }
     });
     setHeatData(result);
