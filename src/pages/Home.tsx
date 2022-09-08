@@ -1,4 +1,8 @@
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import {
+  GoogleMap,
+  LoadScript,
+  Marker,
+} from '@react-google-maps/api';
 import { useState } from 'react';
 import { road, landmark, labels, theme } from '../config/maps';
 const DEFAULT_ALLOW_LIB: (
@@ -38,7 +42,11 @@ const Home = () => {
             disableDefaultUI: true,
             styles: mapsStyle,
           }}
-        ></GoogleMap>
+        >
+          <div>
+            <Marker position={DEFAULT_CENTER} />
+          </div>
+        </GoogleMap>
       </LoadScript>
     </div>
   );
