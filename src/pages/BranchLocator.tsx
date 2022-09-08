@@ -7,7 +7,7 @@ import {
   Marker,
 } from '@react-google-maps/api';
 import { useEffect, useState } from 'react';
-import MOCK_B from '../data/BRANCH_LOCATOR_DATA_MOCK.json';
+import { MOCK_BRANCH } from '../data/BRANCH_LOCATOR_DATA_MOCK';
 import CurrentLocation from '../asset/icons/CurrentLocation.png';
 import StoreIconCenter from '../asset/icons/StoreIconCenter.png';
 import UnselectedStore from '../asset/icons/UnselectedStore.png';
@@ -152,7 +152,7 @@ const BranchLocator = () => {
                   scaledSize: new google.maps.Size(35, 50),
                 }}
               />
-              {MOCK_B.map((mk, index) => {
+              {MOCK_BRANCH.map((mk, index) => {
                 return (
                   <Marker
                     onClick={() => {
