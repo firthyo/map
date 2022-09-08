@@ -1,38 +1,39 @@
 import styled from 'styled-components';
 import './App.css';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { ReactComponent as Geo } from './images/geo.svg';
-import { ReactComponent as MapPin } from './images/map-pin.svg';
-import { ReactComponent as Home } from './images/home.svg';
-import { ReactComponent as Graph } from './images/graph.svg';
+import { ReactComponent as GeoIcon } from './images/geo.svg';
+import { ReactComponent as MapPinIcon } from './images/map-pin.svg';
+import { ReactComponent as HomeIcon } from './images/home.svg';
+import { ReactComponent as GraphIcon } from './images/graph.svg';
 import BranchLocator from './pages/BranchLocator';
 import GeoMarketing from './pages/GeoMarketing';
 import Heatmap from './pages/Heatmap';
+import Home from './pages/Home';
 
 function App() {
   const location = useLocation();
   const DropdownList = [
     {
       message: 'Home',
-      icon: <Home />,
+      icon: <HomeIcon />,
       onclick: () => {},
       to: '/',
     },
     {
       message: 'Branch Locator',
-      icon: <MapPin />,
+      icon: <MapPinIcon />,
       onclick: () => {},
       to: '/branch-locator',
     },
     {
-      message: 'Geo-marketing',
-      icon: <Geo />,
+      message: 'GeoIcon-marketing',
+      icon: <GeoIcon />,
       onclick: () => {},
       to: '/geo-marketing',
     },
     {
       message: 'Heatmap',
-      icon: <Graph />,
+      icon: <GraphIcon />,
       onclick: () => {},
       to: '/heatmap',
     },
@@ -64,6 +65,7 @@ function App() {
         })}
       </SMenu>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/branch-locator" element={<BranchLocator />} />
         <Route path="/geo-marketing" element={<GeoMarketing />} />
         <Route path="/heatmap" element={<Heatmap />} />
