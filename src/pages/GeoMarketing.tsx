@@ -8,6 +8,7 @@ import {
   Marker,
 } from '@react-google-maps/api';
 import { useEffect, useState } from 'react';
+import { GEO_ITEM_DATA_MOCK } from '../data/GEO_ITEM_DATA_MOCK';
 import { MOCK_BRANCH } from '../data/BRANCH_LOCATOR_DATA_MOCK';
 import UnselectedStore from '../asset/icons/UnselectedStore.png';
 import { road, landmark, labels, theme } from '../config/maps';
@@ -32,6 +33,7 @@ const GeoMarketing = () => {
   const [maps, setMaps] = useState<google.maps.Map | undefined>(
     undefined,
   );
+  const [dataShow, setDataShow] = useState(MOCK_BRANCH);
   const [selectedPoint, setSelectedPoint] = useState<any>();
   const [productSelected, setProductSelected] = useState<
     IProduct | undefined
@@ -58,12 +60,25 @@ const GeoMarketing = () => {
     setMatrix(undefined);
   }, [selectedPoint]);
   const [direction, setDirection] = useState<any>(undefined);
+  useEffect(() => {
+    if (!productSelected) return;
+    const result: any = [];
+    MOCK_BRANCH.forEach((e) => {
+      e.image.forEach((el) => {
+        if (el.name === productSelected.name) {
+          result.push(e);
+        }
+      });
+    });
+    setDataShow(result);
+  }, [productSelected]);
   return (
     <div>
       <SearchBar
         handleSelectProduct={handleSelectProduct}
         suggestion={suggestion}
         setSuggestion={setSuggestion}
+        data={GEO_ITEM_DATA_MOCK}
       />
       {productSelected && selectedPoint && (
         <ProductDialog
@@ -78,6 +93,7 @@ const GeoMarketing = () => {
           contact={selectedPoint.contact}
           renderPath={() => setIsrenderPath(true)}
           matrix={matrix}
+          image={selectedPoint.image ?? ''}
           css={
             productSelected
               ? { margin: '220px 20px' }
@@ -153,13 +169,7 @@ const GeoMarketing = () => {
                 />
               )}
               {productSelected &&
-                MOCK_BRANCH.map((mk: any, index) => {
-                  const price = mk.item[productSelected.name].price;
-                  const stock = mk.item[productSelected.name].count
-                    ? `IN STOCK ${
-                        mk.item[productSelected.name].count
-                      }`
-                    : 'OUT OF STOCK';
+                dataShow.map((mk: any, index) => {
                   return (
                     <InfoWindow
                       key={index}
@@ -169,30 +179,31 @@ const GeoMarketing = () => {
                       }}
                     >
                       <SInfo onClick={() => setSelectedPoint(mk)}>
-                        <img
-                          alt={productSelected.name}
-                          src={productSelected.image}
-                        ></img>
-                        <div className="des">
-                          <div className="name">
-                            {productSelected.name}
-                            <div>
-                              {mk.item[productSelected.name].promotion
-                                ? `(PROMOTION!)`
-                                : ''}
+                        {mk.image.map((e: any, i: number) => {
+                          return (
+                            <div
+                              style={{
+                                width: '100%',
+                                padding: '5px 0px',
+                                display: 'flex',
+                                alignItems: 'center',
+                              }}
+                              key={i}
+                            >
+                              <img
+                                style={{
+                                  width: '100px',
+                                  marginRight: '10px',
+                                }}
+                                alt={e.name}
+                                src={e.src}
+                              />
+                              <div className="des">
+                                <div className="name">{e.name}</div>
+                              </div>
                             </div>
-                          </div>
-                          <div className="price">฿ {price}</div>
-                          <div
-                            className={`stock ${
-                              mk.item[productSelected.name].count
-                                ? ''
-                                : 'out'
-                            }`}
-                          >
-                            {stock}
-                          </div>
-                        </div>
+                          );
+                        })}
                       </SInfo>
                     </InfoWindow>
                   );
@@ -225,6 +236,7 @@ const SInfo = styled.div`
   line-height: 20px;
   display: flex;
   align-items: center;
+  flex-direction: column;
   & > img {
     height: 40px;
   }

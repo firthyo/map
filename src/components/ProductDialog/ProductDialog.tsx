@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import vector from '../../asset/icons/Vector.png';
 interface IProductDialog {
   productSelected: any;
   selectedPoint?: any;
@@ -14,42 +13,6 @@ const ProductDialog = ({
         <SImg src={productSelected.image} />
         <SDetail>
           <div className="name">{productSelected.name}</div>
-          {selectedPoint && (
-            <>
-              <div className="price">
-                ฿ {selectedPoint.item[productSelected.name].price}
-              </div>
-              <div
-                className={
-                  selectedPoint.item[productSelected.name].count
-                    ? 'stock'
-                    : 'out'
-                }
-              >
-                {selectedPoint.item[productSelected.name].count
-                  ? `IN STOCK : ${
-                      selectedPoint.item[productSelected.name].count
-                    }`
-                  : 'OUT OF STOCK'}
-              </div>
-              {selectedPoint.item[productSelected.name].promotion && (
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}
-                >
-                  <img src={vector} alt="vector" />{' '}
-                  <div style={{ marginLeft: '10px' }}>
-                    {
-                      selectedPoint.item[productSelected.name]
-                        .promotion
-                    }
-                  </div>
-                </div>
-              )}
-            </>
-          )}
         </SDetail>
       </SInfo>
     </SContainer>

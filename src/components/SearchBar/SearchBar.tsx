@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as SearchIcon } from '../../asset/icons/MagnifyingGlass.svg';
-import { ITEM_DATA_MOCK } from '../../data/ITEM_DATA_MOCK';
+
 interface ISearchBar {
   handleSelectProduct: Function;
   suggestion: any[];
   setSuggestion: Function;
+  data: any;
 }
 const SearchBar = ({
   handleSelectProduct,
   suggestion,
   setSuggestion,
+  data,
 }: ISearchBar) => {
   const [searching, setSearching] = useState<string>('');
   const [productSearch, setProductSearch] = useState(undefined);
@@ -19,7 +21,7 @@ const SearchBar = ({
 
     const result: any[] = [];
     const re = new RegExp(`${searching.toLowerCase()}`);
-    ITEM_DATA_MOCK.forEach((e) => {
+    data.forEach((e: any) => {
       const r = e.name.toLowerCase().match(re);
       if (r) {
         result.push(e);

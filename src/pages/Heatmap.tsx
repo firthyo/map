@@ -11,6 +11,7 @@ import { MOCK_BRANCH } from '../data/BRANCH_LOCATOR_DATA_MOCK';
 import UnselectedStore from '../asset/icons/UnselectedStore.png';
 import SearchBar from '../components/SearchBar/SearchBar';
 import ProductDialog from '../components/ProductDialog/ProductDialog';
+import { ITEM_DATA_MOCK } from '../data/ITEM_DATA_MOCK';
 interface IDataHeatmap {
   id: number;
   first_name: string;
@@ -66,6 +67,7 @@ const Heatmap = () => {
   return (
     <div>
       <SearchBar
+        data={ITEM_DATA_MOCK}
         handleSelectProduct={handleSelectProduct}
         suggestion={suggestion}
         setSuggestion={setSuggestion}
