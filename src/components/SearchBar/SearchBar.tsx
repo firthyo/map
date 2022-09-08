@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as SearchIcon } from '../../asset/icons/MagnifyingGlass.svg';
-import ITEM_DATA_MOCK from '../../data/ITEM_DATA_MOCK.json';
+import { ITEM_DATA_MOCK } from '../../data/ITEM_DATA_MOCK';
 interface ISearchBar {
   handleSelectProduct: Function;
   suggestion: any[];
