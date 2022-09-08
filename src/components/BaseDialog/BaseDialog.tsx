@@ -42,7 +42,7 @@ const BaseDialog = (dialogContent: DialogInterface) => {
                   return (
                     <SImage key={i}>
                       <img
-                        style={{ width: '50px', height: '70px' }}
+                        style={{ width: '70px', height: '80px' }}
                         src={img}
                         alt="kkk"
                       />
