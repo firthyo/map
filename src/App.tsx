@@ -1,155 +1,122 @@
-import { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import './App.css';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import menu from './images/menu.png';
-import mapPin from './images/map-pin.png';
-import geo from './images/geo.png';
-import graph from './images/graph.png';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import { ReactComponent as Geo } from './images/geo.svg';
+import { ReactComponent as MapPin } from './images/map-pin.svg';
+import { ReactComponent as Home } from './images/home.svg';
+import { ReactComponent as Graph } from './images/graph.svg';
 import BranchLocator from './pages/BranchLocator';
 import GeoMarketing from './pages/GeoMarketing';
 import Heatmap from './pages/Heatmap';
 
 function App() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const location = useLocation();
   const DropdownList = [
     {
-      message: 'MENU',
-      icon: menu,
-      onclick: () => setIsDropdownOpen(!isDropdownOpen),
-      to: '',
+      message: 'Home',
+      icon: <Home />,
+      onclick: () => {},
+      to: '/',
     },
     {
       message: 'Branch Locator',
-      icon: mapPin,
+      icon: <MapPin />,
       onclick: () => {},
-      to: '',
+      to: '/branch-locator',
     },
     {
       message: 'Geo-marketing',
-      icon: geo,
+      icon: <Geo />,
       onclick: () => {},
-      to: 'geo-marketing',
+      to: '/geo-marketing',
     },
     {
       message: 'Heatmap',
-      icon: graph,
+      icon: <Graph />,
       onclick: () => {},
-      to: 'heatmap',
+      to: '/heatmap',
     },
   ];
   return (
     <SContainer>
-      {isDropdownOpen && (
-        <SBackDrop onClick={() => setIsDropdownOpen(false)} />
-      )}
-      <BrowserRouter>
-        <SDropdown className={isDropdownOpen ? 'open' : 'close'}>
-          {DropdownList.map((e, i) => {
-            if (i === 0) {
-              return (
-                <SBar
-                  className={isDropdownOpen ? 'open' : 'close'}
-                  onClick={() => e.onclick()}
-                  key={i}
-                >
-                  <SMessage>{e.message}</SMessage>
-                  <SIcon src={e.icon} />
-                </SBar>
-              );
-            } else {
-              return (
-                <Link
-                  to={e.to}
-                  style={{ textDecoration: 'none' }}
-                  key={i}
-                >
-                  <SBar
-                    className={isDropdownOpen ? 'open' : 'close'}
-                    onClick={() => e.onclick()}
-                  >
-                    <SMessage>{e.message}</SMessage>
-                    <SIcon src={e.icon} />
-                  </SBar>
-                </Link>
-              );
-            }
-          })}
-        </SDropdown>
-        <Routes>
-          <Route path="/" element={<BranchLocator />} />
-          <Route path="/geo-marketing" element={<GeoMarketing />} />
-          <Route path="/heatmap" element={<Heatmap />} />
-        </Routes>
-      </BrowserRouter>
+      <SMenu>
+        {DropdownList.map((e, i) => {
+          return (
+            <Link
+              to={e.to}
+              style={{ textDecoration: 'none', width: '100%' }}
+              key={i}
+            >
+              <SChoice
+                className={`${
+                  location.pathname === e.to ? 'selected' : ''
+                } ${
+                  i === 0 && location.pathname === e.to
+                    ? 'firstSelected'
+                    : ''
+                }`}
+              >
+                {e.icon}
+                {e?.message}
+              </SChoice>
+            </Link>
+          );
+        })}
+      </SMenu>
+      <Routes>
+        <Route path="/branch-locator" element={<BranchLocator />} />
+        <Route path="/geo-marketing" element={<GeoMarketing />} />
+        <Route path="/heatmap" element={<Heatmap />} />
+      </Routes>
     </SContainer>
   );
 }
 
 export default App;
-const SBackDrop = styled.div`
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-`;
-const SMessage = styled.div`
-  white-space: nowrap;
-  width: 110px;
-  color: black;
-`;
-const SIcon = styled.img`
-  margin: 4px 4px 0px 20px;
-  width: 32px;
-  height: 32px;
-`;
-const SBar = styled.div`
-  display: flex;
-  overflow: hidden;
-  justify-content: flex-end;
-  align-items: center;
-  &.open {
-    &:hover {
-      background-color: #d8d8d8;
-    }
-  }
-`;
-const ADropdownOpen = keyframes`
- 0% { height: 40px; width: 40px; }
- 30% { height: 150px; width: 40px; }
- 100% { height: 150px; width: 177px;  }
-`;
-const ADropdownClose = keyframes`
- 0% { height: 150px; width: 177px; }
- 30% { height: 150px; width: 40px; }
- 100% { height: 40px; width: 40px;  }
-`;
-const SDropdown = styled.div`
+const SMenu = styled.div`
   position: absolute;
   z-index: 2;
-  right: 10px;
-  top: 10px;
-  background-color: white;
-  overflow: hidden;
-  &.close {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    animation-name: ${ADropdownClose};
-    animation-duration: 1s;
-    width: 40px;
-    height: 40px;
-  }
-  &.open {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    animation-name: ${ADropdownOpen};
-    animation-duration: 1s;
-    height: 150px;
-    width: 177px;
-  }
-  cursor: pointer;
-  border-radius: 5px;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  //----------------------
+  width: 50%;
+  height: 60px;
+  display: flex;
+  background: #ffffff;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
 `;
 const SContainer = styled.div`
   width: 100%;
   height: 100%;
+`;
+const SChoice = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+  color: black;
+  &.selected {
+    background: #404040;
+    color: white;
+    & > svg {
+      margin-right: 5px;
+      & > path {
+        stroke: white;
+      }
+    }
+  }
+  &.firstSelected {
+    background: #404040;
+    color: white;
+    & > svg {
+      margin-right: 5px;
+      fill: white;
+    }
+  }
 `;
