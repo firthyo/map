@@ -103,11 +103,13 @@ const SChoice = styled.div`
   align-items: center;
   border-radius: 18px;
   color: black;
+  & > svg {
+    margin-right: 5px;
+  }
   &.selected {
     background: #404040;
     color: white;
     & > svg {
-      margin-right: 5px;
       & > path {
         stroke: white;
       }
@@ -117,7 +119,6 @@ const SChoice = styled.div`
     background: #404040;
     color: white;
     & > svg {
-      margin-right: 5px;
       fill: white;
     }
   }
