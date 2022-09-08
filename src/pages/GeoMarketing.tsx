@@ -8,7 +8,7 @@ import {
   Marker,
 } from '@react-google-maps/api';
 import { useEffect, useState } from 'react';
-import MOCK_B from '../data/BRANCH_LOCATOR_DATA_MOCK.json';
+import { MOCK_BRANCH } from '../data/BRANCH_LOCATOR_DATA_MOCK';
 import UnselectedStore from '../asset/icons/UnselectedStore.png';
 import { road, landmark, labels, theme } from '../config/maps';
 import SearchBar from '../components/SearchBar/SearchBar';
@@ -153,7 +153,7 @@ const GeoMarketing = () => {
                 />
               )}
               {productSelected &&
-                MOCK_B.map((mk: any, index) => {
+                MOCK_BRANCH.map((mk: any, index) => {
                   const price = mk.item[productSelected.name].price;
                   const stock = mk.item[productSelected.name].count
                     ? `IN STOCK ${
@@ -199,7 +199,7 @@ const GeoMarketing = () => {
                 })}
 
               <Marker position={DEFAULT_CENTER} />
-              {MOCK_B.map((mk: any, index) => {
+              {MOCK_BRANCH.map((mk: any, index) => {
                 return (
                   <Marker
                     onClick={() => setSelectedPoint(mk)}

@@ -7,7 +7,7 @@ import {
 import { useEffect, useRef, useState } from 'react';
 import { road, landmark, labels, theme } from '../config/maps';
 import HEAT_MAP_DATA_MOCK from '../data/HEAT_MAP_DATA_MOCK.json';
-import MOCK_B from '../data/BRANCH_LOCATOR_DATA_MOCK.json';
+import { MOCK_BRANCH } from '../data/BRANCH_LOCATOR_DATA_MOCK';
 import UnselectedStore from '../asset/icons/UnselectedStore.png';
 import SearchBar from '../components/SearchBar/SearchBar';
 import ProductDialog from '../components/ProductDialog/ProductDialog';
@@ -92,7 +92,7 @@ const Heatmap = () => {
         >
           {maps && (
             <div>
-              {MOCK_B.map((mk: any, index) => {
+              {MOCK_BRANCH.map((mk: any, index) => {
                 return (
                   <Marker
                     onClick={() => setSelectedPoint(mk)}
