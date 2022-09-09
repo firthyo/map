@@ -15,14 +15,14 @@ export const ITEM_DATA_MOCK = [
     },
   },
   {
-    name: 'High Sierra Signature',
+    name: 'Apple Signature',
     image: HighSierra,
     range: {
       minimum: 30000,
     },
   },
   {
-    name: 'Mojave Clubs',
+    name: 'Lemons Clubs',
     image: Mojave,
     range: {
       minimum: 30000,
@@ -43,7 +43,7 @@ export const ITEM_DATA_MOCK = [
     },
   },
   {
-    name: 'Monterey Diamon',
+    name: 'Spaghetti Diamon',
     image: Monterey,
     range: {
       minimum: 50000,
