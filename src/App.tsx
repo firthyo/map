@@ -9,6 +9,7 @@ import BranchLocator from './pages/BranchLocator';
 import GeoMarketing from './pages/GeoMarketing';
 import Heatmap from './pages/Heatmap';
 import Home from './pages/Home';
+import RetailDelivery from './pages/RetailDelivery';
 
 function App() {
   const location = useLocation();
@@ -26,7 +27,7 @@ function App() {
       to: '/branch-locator',
     },
     {
-      message: 'GeoIcon-marketing',
+      message: 'Geo-marketing',
       icon: <GeoIcon />,
       onclick: () => {},
       to: '/geo-marketing',
@@ -36,6 +37,12 @@ function App() {
       icon: <GraphIcon />,
       onclick: () => {},
       to: '/heatmap',
+    },
+    {
+      message: 'RetailDelivery',
+      icon: <GraphIcon />,
+      onclick: () => {},
+      to: '/retail-delivery',
     },
   ];
   return (
@@ -69,6 +76,7 @@ function App() {
         <Route path="/branch-locator" element={<BranchLocator />} />
         <Route path="/geo-marketing" element={<GeoMarketing />} />
         <Route path="/heatmap" element={<Heatmap />} />
+        <Route path="/heatmap" element={<RetailDelivery />} />
       </Routes>
     </SContainer>
   );
