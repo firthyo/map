@@ -76,7 +76,7 @@ function App() {
         <Route path="/branch-locator" element={<BranchLocator />} />
         <Route path="/geo-marketing" element={<GeoMarketing />} />
         <Route path="/heatmap" element={<Heatmap />} />
-        <Route path="/heatmap" element={<RetailDelivery />} />
+        <Route path="/retail-delivery" element={<RetailDelivery />} />
       </Routes>
     </SContainer>
   );

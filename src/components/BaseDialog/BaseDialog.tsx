@@ -9,54 +9,71 @@ interface DialogInterface {
   button?: any;
   matrix: any;
   image?: any;
+  isRetail?: boolean;
+  retailData?: any;
 }
 
 const BaseDialog = (dialogContent: DialogInterface) => {
+  console.log(dialogContent.retailData, 'dialogContent');
   return (
     <SPopup style={dialogContent.css}>
-      <img
-        style={{ width: '380px' }}
-        src={DialogBg}
-        alt="organization"
-      />
-      <STextWarpper>
-        <STitle>{dialogContent.title}</STitle>
-        <STextContent>
-          <SDetail>{dialogContent.description}</SDetail>
-          <SContact>{dialogContent.contact}</SContact>
-          {dialogContent.matrix && (
-            <>
-              <SContact>
-                Distance : {dialogContent?.matrix?.distance?.text}
-              </SContact>
-              <SContact>
-                Duration : {dialogContent?.matrix?.duration?.text}
-              </SContact>
-            </>
-          )}
-
-          <SImageWarpper>
-            {dialogContent.image
-              ? dialogContent.image.map((img: any, i: number) => {
-                  // renderImg(img);
-                  return (
-                    <SImage key={i}>
-                      <img
-                        style={{ width: '120px', marginRight: 5 }}
-                        src={img.src}
-                        alt="kkk"
-                      />
-                      <STextContent>{img.name}</STextContent>
-                    </SImage>
-                  );
-                })
-              : null}
-          </SImageWarpper>
-          <SButtonWrapper>
-            {dialogContent.button ?? null}
-          </SButtonWrapper>
-        </STextContent>
-      </STextWarpper>
+      {dialogContent.isRetail ? (
+        <STextWarpper>
+          {dialogContent.retailData.map((el: any) => {
+            return <p>{el.name}</p>;
+          })}
+          <STextContent>
+            <SButtonWrapper>
+              {dialogContent.button ?? null}
+            </SButtonWrapper>
+          </STextContent>
+        </STextWarpper>
+      ) : (
+        <>
+          <img
+            style={{ width: '380px' }}
+            src={DialogBg}
+            alt="organization"
+          />
+          <STextWarpper>
+            <STitle>{dialogContent.title}</STitle>
+            <STextContent>
+              <SDetail>{dialogContent.description}</SDetail>
+              <SContact>{dialogContent.contact}</SContact>
+              {dialogContent.matrix && (
+                <>
+                  <SContact>
+                    Distance : {dialogContent?.matrix?.distance?.text}
+                  </SContact>
+                  <SContact>
+                    Duration : {dialogContent?.matrix?.duration?.text}
+                  </SContact>
+                </>
+              )}
+              <SImageWarpper>
+                {dialogContent.image
+                  ? dialogContent.image.map((img: any, i: number) => {
+                      // renderImg(img);
+                      return (
+                        <SImage key={i}>
+                          <img
+                            style={{ width: '120px', marginRight: 5 }}
+                            src={img.src}
+                            alt="kkk"
+                          />
+                          <STextContent>{img.name}</STextContent>
+                        </SImage>
+                      );
+                    })
+                  : null}
+              </SImageWarpper>
+              <SButtonWrapper>
+                {dialogContent.button ?? null}
+              </SButtonWrapper>
+            </STextContent>
+          </STextWarpper>
+        </>
+      )}
     </SPopup>
   );
 };
@@ -92,7 +109,12 @@ const STitle = styled.div`
 `;
 const STextWarpper = styled.div`
   margin: 25px;
+  & > p {
+    font-size: 20px;
+    margin: 10px 0px 10px 0px;
+  }
 `;
+
 const SDetail = styled.div`
   max-width: 380px;
   max-height: 25px;
